@@ -46,8 +46,8 @@ metadata:
   name: external-ingress
   namespace: external-dns
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: "aqeel.groveops.net"
-    kubernetes.io/ingress.class: "aws-load-balancer"
+    external-dns.alpha.kubernetes.io/hostname: aqeel.groveops.net
+    kubernetes.io/ingress.class: aws-load-balancer
 spec:
   rules:
   - host: "aqeel.groveops.net"
