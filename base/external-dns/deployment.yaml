@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: externaldns
+  namespace: kube-system
+  labels:
+    app: externaldns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: externaldns
+  template:
+    metadata:
+      labels:
+        app: externaldns
+    spec:
+      serviceAccountName: externaldns  # Service account created above
+      containers:
+        - name: externaldns
+          image: bitnami/external-dns:latest
+          args:
+            - --provider=aws
+            - --aws-zone-type=public  # Update if using private zones
+            - --domain-filter=groveops.net  # Your domain
+            - --policy=sync
+            - --registry=txt
+            - --txt-owner-id=externaldns
+            - --log-level=debug
+            - --interval=1m
+
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: "aqeel.groveops.net"
+spec:
+  selector:
+    app: externaldns
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8
+--- 
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-app-ingress
+  namespace: external-dns
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: "aqeel.groveops.net"
+spec:
+  rules:
+    - host: "aqeel.groveops.net"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: my-service  
+                port:
+                  number: 80
