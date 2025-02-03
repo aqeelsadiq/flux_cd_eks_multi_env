@@ -6,7 +6,7 @@ metadata:
   labels:
     app: externaldns
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: externaldns
@@ -47,19 +47,20 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: my-app-ingress
-  namespace: external-dns
+  name: external-ingress
+  namespace: default
   annotations:
     external-dns.alpha.kubernetes.io/hostname: "aqeel.groveops.net"
 spec:
   rules:
-    - host: "aqeel.groveops.net"
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: my-service  
-                port:
-                  number: 80
+  - host: "aqeel.groveops.net"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: your-app-service
+            port:
+              number: 80
+

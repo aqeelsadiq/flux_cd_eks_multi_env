@@ -4,23 +4,24 @@ metadata:
   name: external-dns
   namespace: external-dns
 spec:
-  interval: 5m
-  targetNamespace: external-dns
-  releaseName: external-dns
   chart:
     spec:
       chart: external-dns
       version: "1.15.0"
       sourceRef:
         kind: HelmRepository
-        name: external-dns
-        namespace: external-dns
+        name: bitnami
+        namespace: flux-system
   values:
-    installCRDs: true
-    # provider: aws
-    # registry: txt
-    # txtOwnerId: eks-cluster
-    # policy: sync
-    # serviceAccount:
-    #   create: true
-    #   name: external-dns-sa
+    provider: aws
+    aws:
+      region: us-west-1 
+    domainFilter: "groveops.net" 
+    sources:
+      - ingress
+      - service
+    policy: sync
+    interval: 1m
+    ttl: 1h
+    serviceAccount:
+      name: external-dns-sa

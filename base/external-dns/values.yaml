@@ -1,0 +1,18 @@
+
+provider: aws  
+aws:
+  region: us-west-1 
+
+domainFilter: "groveops.net" 
+
+sources:
+  - ingress 
+  - service  
+
+policy: sync
+interval: 1m
+ttl: 1h 
+
+serviceAccount:
+  name: external-dns-sa
+
