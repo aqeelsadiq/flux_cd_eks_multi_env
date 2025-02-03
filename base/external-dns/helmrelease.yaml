@@ -15,11 +15,11 @@ spec:
         kind: HelmRepository
         name: external-dns
         namespace: flux-system
-  # values:
-  #   provider: aws
-  #   registry: txt
-  #   txtOwnerId: eks-cluster
-  #   policy: sync
-  #   serviceAccount:
-  #     create: true
-  #     name: external-dns-sa
+  values:
+    provider: aws
+    registry: txt
+    txtOwnerId: eks-cluster
+    policy: sync
+    serviceAccount:
+      create: false
+      name: external-dns-sa
