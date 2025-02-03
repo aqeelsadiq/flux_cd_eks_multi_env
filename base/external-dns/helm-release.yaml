@@ -16,10 +16,11 @@ spec:
         name: external-dns
         namespace: flux-system
   values:
-    provider: aws
-    registry: txt
-    txtOwnerId: eks-cluster
-    policy: sync
-    serviceAccount:
-      create: true
-      name: external-dns-sa
+    installCRDs: true
+    # provider: aws
+    # registry: txt
+    # txtOwnerId: eks-cluster
+    # policy: sync
+    # serviceAccount:
+    #   create: true
+    #   name: external-dns-sa
