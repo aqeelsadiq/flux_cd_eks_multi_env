@@ -11,4 +11,6 @@ spec:
       name: letsencrypt-prod
     solvers:
     - dns01:
-        external: {}
+        route53:
+          region: us-west-1
+          hostedZoneID: Z074130239BXW7W2J0TY9
