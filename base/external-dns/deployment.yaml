@@ -21,19 +21,19 @@ spec:
           image: nginx:latest
           ports:
           - containerPort: 80
-          command:
-            - /bin/sh
-            - -c
-            - |
-              /opt/external-dns/external-dns \
-              --provider=aws \
-              --aws-zone-type=public \
-              --domain-filter=groveops.net \
-              --policy=sync \
-              --registry=txt \
-              --txt-owner-id=externaldns \
-              --log-level=debug \
-              --interval=1m
+          # command:
+          #   - /bin/sh
+          #   - -c
+          #   - |
+          #     /opt/external-dns/external-dns \
+          #     --provider=aws \
+          #     --aws-zone-type=public \
+          #     --domain-filter=groveops.net \
+          #     --policy=sync \
+          #     --registry=txt \
+          #     --txt-owner-id=externaldns \
+          #     --log-level=debug \
+          #     --interval=1m
 
 --- 
 apiVersion: v1
