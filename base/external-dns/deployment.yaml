@@ -17,8 +17,8 @@ spec:
     spec:
       serviceAccountName: external-dns-sa  
       containers:
-        - name: externaldns
-          image: bitnami/external-dns:latest
+        - name: nginx
+          image: nginx:latest
           args:
             - --provider=aws
             - --aws-zone-type=public 
