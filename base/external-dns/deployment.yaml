@@ -49,7 +49,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: external-ingress
-  namespace: default
+  namespace: external-dns
   annotations:
     external-dns.alpha.kubernetes.io/hostname: "aqeel.groveops.net"
 spec:
@@ -61,7 +61,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: your-app-service
+            name: my-service
             port:
               number: 80
 
