@@ -51,28 +51,28 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
---- 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: external-ingress
-  namespace: external-dns
-  annotations:
-    external-dns.alpha.kubernetes.io/hostname: "aqeel.groveops.net"
-spec:
-  rules:
-  - host: "aqeel.groveops.net"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: my-service
-            port:
-              number: 80
+# --- 
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: external-ingress
+#   namespace: external-dns
+#   annotations:
+#     external-dns.alpha.kubernetes.io/hostname: "aqeel.groveops.net"
+# spec:
+#   rules:
+#   - host: "aqeel.groveops.net"
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: my-service
+#             port:
+#               number: 80
   
-  tls:
-  - hosts:
-    - aqeel.groveops.net 
-    secretName: example-com-tls 
+#   tls:
+#   - hosts:
+#     - aqeel.groveops.net 
+#     secretName: example-com-tls 
