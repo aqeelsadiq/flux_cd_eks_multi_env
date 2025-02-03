@@ -14,16 +14,23 @@ spec:
         name: external-dns
         namespace: external-dns
   values:
-    provider: aws
+    deployment:
+      containers:
+        - name: external-dns
+          image: registry.k8s.io/external-dns/external-dns:v0.13.1
+          command:
+            - /bin/sh
+            - -c
+            - |
+              /opt/external-dns/external-dns $(EXTERNAL_DNS_ARGS)
+          env:
+            - name: EXTERNAL_DNS_ARGS
+              valueFrom:
+                configMapKeyRef:
+                  name: external-dns-config
+                  key: external-dns-args
+
     aws:
-      region: us-west-1 
-    domainFilter: "groveops.net" 
-    # sources:
-    #   - ingress
-    #   - service
-    policy: upsert-only
-    interval: 1m
-    ttl: 1h
-    serviceAccount:
-      name: external-dns-sa
-    installCRDs: true
+      region: us-west-1
+      credentials:
+        external: true 

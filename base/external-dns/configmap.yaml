@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: external-dns-config
+  namespace: external-dns
+data:
+  external-dns-args: |
+    --provider=aws
+    --aws-zone-type=public
+    --domain-filter=groveops.net
+    --policy=sync
+    --registry=txt
+    --txt-owner-id=externaldns
+    --log-level=debug
+    --interval=1m
