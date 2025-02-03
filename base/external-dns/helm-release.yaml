@@ -18,10 +18,10 @@ spec:
     aws:
       region: us-west-1 
     domainFilter: "groveops.net" 
-    sources:
-      - ingress
-      - service
-    policy: sync
+    # sources:
+    #   - ingress
+    #   - service
+    policy: upsert-only
     interval: 1m
     ttl: 1h
     serviceAccount:
