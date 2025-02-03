@@ -64,4 +64,8 @@ spec:
             name: my-service
             port:
               number: 80
-
+  
+  tls:
+  - hosts:
+    - aqeel.groveops.net 
+    secretName: example-com-tls 
