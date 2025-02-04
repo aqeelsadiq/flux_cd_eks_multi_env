@@ -1,35 +1,35 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: simple-web-app
-#   namespace: cert-manager
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: simple-web-app
-#   template:
-#     metadata:
-#       labels:
-#         app: simple-web-app
-#     spec:
-#       containers:
-#       - name: nginx
-#         image: nginx:latest
-#         ports:
-#         - containerPort: 80
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: simple-web-app-service
-#   annotations:
-#     external-dns.alpha.kubernetes.io/hostname: groveops.net
-#   namespace: cert-manager
-# spec:
-#   ports:
-#   - port: 80
-#     targetPort: 80
-#   selector:
-#     app: simple-web-app
-#   # type: LoadBalancer
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-web-app
+  namespace: cert-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-web-app
+  template:
+    metadata:
+      labels:
+        app: simple-web-app
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-web-app-service
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: groveops.net
+  namespace: cert-manager
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: simple-web-app
+  # type: LoadBalancer
