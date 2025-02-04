@@ -6,7 +6,7 @@ resources:
   - helm-repository.yaml
   - namespace.yaml
   - service-account.yaml
-  - deployment.yaml
+  # - deployment.yaml
   - configmap.yaml
   # - values.yaml
 
