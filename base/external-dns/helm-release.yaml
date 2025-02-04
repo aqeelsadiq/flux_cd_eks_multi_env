@@ -34,3 +34,8 @@ spec:
       region: us-west-1
       credentials:
         external: true 
+    service:
+      enabled: true
+      type: LoadBalancer
+      annotations:
+        external-dns.alpha.kubernetes.io/hostname: aqeel.groveops.net
