@@ -8,7 +8,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./base/app/envs/dev
+  path: ./base/app/envs/prod
   prune: true
   wait: true
   timeout: 5m0s
@@ -25,7 +25,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./base/certmanager/envs/dev
+  path: ./base/certmanager/envs/prod
   prune: true
   wait: true
   timeout: 5m0s
@@ -42,7 +42,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./base/external-dns/envs/dev
+  path: ./base/external-dns/envs/prod
   prune: true
   wait: true
   timeout: 5m0s
@@ -59,7 +59,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./base/ingress-nginx/envs/dev
+  path: ./base/ingress-nginx/envs/prod
   prune: true
   wait: true
   timeout: 5m0s
@@ -76,7 +76,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./base/resource/envs/dev
+  path: ./base/resource/envs/prod
   prune: true
   wait: true
   timeout: 5m0s
