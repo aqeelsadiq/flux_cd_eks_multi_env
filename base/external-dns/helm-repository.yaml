@@ -5,4 +5,6 @@ metadata:
   namespace: external-dns
 spec:
   interval: 5m
-  url: https://kubernetes-sigs.github.io/external-dns/
+  url: https://charts.bitnami.com/bitnami
+  
+  # https://kubernetes-sigs.github.io/external-dns/
