@@ -2,13 +2,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - helm-release.yaml
-  - helm-repository.yaml
-  - namespace.yaml
-  - service-account.yaml
-  # - deployment.yaml
-  - configmap.yaml
-  # - values.yaml
-
-
-
+  - ../development/helm-release
+  - ../development/namespace
+  - ../development/service-account
+  - ../development/helmrepository
+  - ../development/configmap
