@@ -24,7 +24,7 @@ kind: Service
 metadata:
   name: simple-web-app-service
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: groveops.net
+    external-dns.alpha.kubernetes.io/hostname: aqeel.groveops.net
   namespace: cert-manager
 spec:
   ports:
