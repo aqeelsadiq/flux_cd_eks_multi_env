@@ -7,7 +7,7 @@ data:
   external-dns-args: |
     --provider=aws
     --aws-zone-type=public
-    --domain-filter=groveops.net
+    --domain-filter=mygroveops.com
     --policy=sync
     --registry=txt
     --txt-owner-id=externaldns
