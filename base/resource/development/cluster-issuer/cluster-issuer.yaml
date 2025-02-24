@@ -5,7 +5,7 @@ metadata:
   namespace: cert-manager
 spec:
   acme:
-    email: sa3488488066@gmail.com
+    email: sa348846@gmail.com
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-prod
@@ -13,4 +13,4 @@ spec:
     - dns01:
         route53:
           region: us-west-1
-          hostedZoneID: Z074130239BXW7W
+          hostedZoneID: Z074130239
